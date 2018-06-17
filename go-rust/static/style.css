@@ -1,0 +1,13 @@
+body {
+    margin: 0px;
+}
+
+div.not-react {
+    padding: 2em;
+    background-color: lightgrey;
+}
+
+#go-react-target {
+    padding: 2em;
+    background-color: white;
+}
