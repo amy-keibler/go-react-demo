@@ -7,29 +7,25 @@ services:
       dockerfile: nginx/Dockerfile
 
     volumes:
-      - .:/src
       - ./nginx:/etc/nginx/conf.d
       - ./go-react/static:/static
 
     depends_on:
-      - web
+      - demo-web
 
     expose:
       - "80"
 
     ports:
       - "80:80"
-  web:
+  demo-web:
     build:
       context: ./go-rust
 
     expose:
       - "8080"
 
-    ports:
-      - "8080:8080"
-
-    container_name: web
+    container_name: demo-web
 
   # node:
   #   build:
