@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+
+    volumes:
+      - .:/src
+      - ./nginx:/etc/nginx/conf.d
+      - ./go-react/static:/static
+
+    depends_on:
+      - web
+
+    expose:
+      - "80"
+
+    ports:
+      - "80:80"
+  web:
+    build:
+      context: ./go-rust
+
+    expose:
+      - "8080"
+
+    ports:
+      - "8080:8080"
+
+    container_name: web
+
+  # node:
+  #   build:
+  #     context: ./go-react
+
+  #   command: "npm run webpack-watch"
+
+  #   volumes:
+  #     - /usr/src/app/node_modules/
+  #     - ./go-react:/usr/src/app
+  #     - ./go-react/static/dist:/usr/src/app/static/dist

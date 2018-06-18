@@ -31,7 +31,7 @@ fn main() {
         App::new()
             .resource("/", |r| r.method(Method::GET).f(index))
             .resource("/api/v1/info", |r| r.method(Method::GET).f(api))
-            .handler("/static", fs::StaticFiles::new("./static"))
+            .handler("/scripts", fs::StaticFiles::new("./static"))
     }).bind("0.0.0.0:8080")
         .unwrap()
         .run();
