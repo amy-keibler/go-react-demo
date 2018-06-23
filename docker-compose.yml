@@ -17,7 +17,7 @@ services:
       - "80"
 
     ports:
-      - "80:80"
+      - "7878:80"
   demo-web:
     build:
       context: ./go-rust
