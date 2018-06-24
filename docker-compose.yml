@@ -27,13 +27,12 @@ services:
 
     container_name: demo-web
 
-  # node:
-  #   build:
-  #     context: ./go-react
+#  node:
+#    build:
+#      context: ./go-react
+#
+#    command: "npx webpack --watch true"
 
-  #   command: "npm run webpack-watch"
-
-  #   volumes:
-  #     - /usr/src/app/node_modules/
-  #     - ./go-react:/usr/src/app
-  #     - ./go-react/static/dist:/usr/src/app/static/dist
+#    volumes:
+#      - /usr/src/app/node_modules/
+#      - ./go-react:/usr/src/app

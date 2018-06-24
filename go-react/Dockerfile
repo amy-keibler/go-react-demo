@@ -1,5 +1,6 @@
-FROM node:8.1.2
+FROM node:9.11
 
+ADD package.json /tmp
 ADD package-lock.json /tmp
 RUN cd /tmp && npm install
 
