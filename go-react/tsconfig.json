@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir": "./static/",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "es6",
+        "moduleResolution": "node",
+        "target": "es5",
+        "allowJs": true
+    },
+    "include": [
+        "./src/"
+    ]
+}
