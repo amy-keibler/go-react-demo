@@ -1,1 +1,3 @@
-console.log("Hello world");
+import { log } from "./logger";
+
+log("Hello GO");
