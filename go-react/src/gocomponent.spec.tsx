@@ -11,6 +11,10 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe("GoComponent", () => {
     it("should update the state with a click", () => {
-        expect(1).toEqual(2);
+        const wrapper = mount(<GoComponent gotitle="Test Component" />);
+
+        wrapper.find('button').first().simulate("click");
+
+        expect(wrapper.find('.count-div').first().text()).toEqual("1");
     });
 });
