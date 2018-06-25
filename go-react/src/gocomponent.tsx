@@ -29,7 +29,7 @@ export class GoComponent extends React.Component<GoProps, GoState> {
         return (
             <div>
                 <h1>{this.props.gotitle}</h1>
-                <div>{this.state.count}</div>
+                <div className="count-div">{this.state.count}</div>
                 <button onClick={this.incCount}>+</button>
             </div>
         );
