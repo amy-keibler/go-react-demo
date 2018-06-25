@@ -3,7 +3,7 @@
         "outDir": "./static/",
         "sourceMap": true,
         "noImplicitAny": false,
-        "module": "es6"
+        "module": "es6",
         "lib": ["esnext", "dom"],
         "moduleResolution": "node",
         "target": "es5",
