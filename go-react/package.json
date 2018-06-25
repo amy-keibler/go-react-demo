@@ -33,6 +33,7 @@
     "webpack-cli": "^3.0.8"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"

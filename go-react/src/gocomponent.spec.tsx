@@ -13,7 +13,7 @@ describe("GoComponent", () => {
     it("should update the state with a click", () => {
         const wrapper = mount(<GoComponent gotitle="Test Component" />);
 
-        wrapper.find('button').first().simulate("click");
+        wrapper.find('button.increment').first().simulate("click");
 
         expect(wrapper.find('.count-div').first().text()).toEqual("1");
     });
