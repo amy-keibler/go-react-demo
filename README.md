@@ -18,6 +18,7 @@
 1. Un-comment the `node` section of the docker compose file
 2. `cd` into the `go-react` sub-directory
 3. Run `npm install`
+4. Observe the file contents of the Webpack entry point:  `src/index.js`
 4. Run `npx webpack` and observe that it creates the `static/bundle.js` file
 5. `docker-compose up --build` from the parent directory and observe the log message
 6. Change the log message and reload the page
@@ -29,24 +30,14 @@
 **Outcome:** We will be able to interact with a component's state through button presses and we will be able to observe the changes in the React 
 
 ### Steps
-0. Install the required react dependencies
-   * `npm install --save react react-dom @types/react @types/react-dom`
-   * `npm install --save-dev babel-preset-react`
-1. Add the following babel section to `package.json`
-   * `  "babel": { "presets": [ "env", "react" ] }`
-2. Add the react configuration to the `tsconfig.json` file
-   * `"jsx": "react"`
-   * `"lib": ["esnext", "dom"]`
-3. Update the `webpack.config.js` file to handle react related files
-   * add `tsx` and `jsx` files to the resolver extensions
-   * add a module rule `{ test: /\.jsx?$/, loader: "babel-loader" }`
-   * create a `.babelrc` folder with contents `{ "presets": [ "env", "react" ] }`
-4. Update the `index.js` file to import `React` from `react` and `ReactDOM` from `react-dom`
+0. Check out the tag `react-start`
+1. Install the required react dependencies
+2. Update the `index.js` file to import `React` from `react` and `ReactDOM` from `react-dom`
    * use `ReactDOM.render` with a simple JSX fragment and the target element of `go-react-target`
-5. Rebuild the docker containers and view the change in the browser
-6. Create a component TSX file and include it in `index.js`
-   * demonstrate properties
-   * demonstrate state
+3. Rebuild the docker containers and view the change in the browser
+4. Create a component TSX file and include it in `index.js`
+   * demonstrate properties via a configurable title on the component
+   * demonstrate state via a counter and a button to increment it
 
 ## Phase 2: Tests
 **Objective:** Set up a testing framework that allows us to verify our expectations around a component's behavior.
