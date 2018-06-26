@@ -36,6 +36,7 @@
    * `  "babel": { "presets": [ "env", "react" ] }`
 2. Add the react configuration to the `tsconfig.json` file
    * `"jsx": "react"`
+   * `"lib": ["esnext", "dom"]`
 3. Update the `webpack.config.js` file to handle react related files
    * add `tsx` and `jsx` files to the resolver extensions
    * add a module rule `{ test: /\.jsx?$/, loader: "babel-loader" }`
