@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "outDir": "./static/",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "es6",
+        "lib": ["esnext", "dom"],
+        "moduleResolution": "node",
+        "target": "es5",
+        "jsx": "react",
+        "allowJs": true
+    },
+    "include": [
+        "./src/"
+    ]
+}

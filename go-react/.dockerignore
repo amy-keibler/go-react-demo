@@ -1,1 +1,5 @@
 node_modules/
+*.spec.ts
+*.spec.tsx
+*.spec.js
+*.spec.jsx
