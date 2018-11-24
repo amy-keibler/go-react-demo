@@ -8,7 +8,7 @@ extern crate serde_json;
 use actix_web::{fs, http::Method, server, App, HttpRequest, Json, Result};
 use rand::prelude::random;
 
-fn index(_req: HttpRequest) -> Result<fs::NamedFile> {
+fn index<'r>(_req: &'r HttpRequest) -> Result<fs::NamedFile> {
     Ok(fs::NamedFile::open("./static/index.html")?)
 }
 
@@ -18,7 +18,7 @@ struct ApiInfo {
     number: u8,
 }
 
-fn api(_req: HttpRequest) -> Result<Json<ApiInfo>> {
+fn api<'r>(_req: &'r HttpRequest) -> Result<Json<ApiInfo>> {
     Ok(Json(ApiInfo {
         served_by: "Rust",
         number: random(),
@@ -32,7 +32,7 @@ struct SiegeRating {
     valid: bool,
 }
 
-fn rate(req: HttpRequest) -> Result<Json<SiegeRating>> {
+fn rate<'r>(req: &'r HttpRequest) -> Result<Json<SiegeRating>> {
     let rating: SiegeRating = req.match_info()
         .get("siege_weapon")
         .map(|sw| match sw {
@@ -82,7 +82,11 @@ fn main() {
             .resource("/", |r| r.method(Method::GET).f(index))
             .resource("/rate/{siege_weapon}", |r| r.method(Method::GET).f(rate))
             .resource("/api/v1/info", |r| r.method(Method::GET).f(api))
-            .handler("/scripts", fs::StaticFiles::new("./static"))
+            .handler(
+                "/scripts",
+                fs::StaticFiles::new("./static")
+                    .expect("Failed to configure static content folder"),
+            )
     }).bind("0.0.0.0:8080")
         .unwrap()
         .run();

@@ -4,8 +4,8 @@ version = "0.1.0"
 authors = ["Matthew Keibler <wanderingelf14@gmail.com>"]
 
 [dependencies]
-actix-web = "0.6"
-serde = "1.0"
-serde_json = "1.0"
-serde_derive = "1.0"
-rand = "0.5"
+actix-web = "0.7.3"
+serde = "1.0.70"
+serde_json = "1.0.24"
+serde_derive = "1.0.70"
+rand = "0.6.1"
